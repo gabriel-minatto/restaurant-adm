@@ -16,18 +16,13 @@
 
         <!-- Project One -->
         <div class="row">
-            <div class="col-md-7">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                </a>
-            </div>
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <h3>Nome do Prato</h3>
                 <h4>Mesa X</h4>
                 <h5>Acompanhamentos e Observações:</h5>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
-                <a class="btn btn-primary" href="#">Fazer Pedido<span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
+                <a class="btn btn-primary" href="#">Fazer<span class="glyphicon glyphicon-chevron-right"></span></a>
+            </div>  '
         </div>
         <!-- /.row -->
 

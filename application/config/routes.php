@@ -55,6 +55,7 @@ $route['prontos'] = 'pages/ready';
 $route['aguardando-pagamento'] = 'pages/waiting_payment';
 $route['finalizados'] = 'pages/finished';
 
+$route["webservice-input"] = "pages/create_order";
 
 
 
