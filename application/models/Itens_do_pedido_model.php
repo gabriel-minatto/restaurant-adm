@@ -30,7 +30,66 @@ class Itens_do_pedido_model extends CI_Model
         return $query->row(0, "Itens_do_pedido_model");
     }
     
-	
+    public function load_all_waiting()
+    {
+        $this->db->from("itens_do_pedido idp");
+        $this->db->join("pedidos p","p.id = idp.pedido");
+        $this->db->join("itens i","i.id = idp.item");
+        $this->db->where("p.status","waiting");
+        $this->db->where("i.disponibilidade","1");
+        $this->db->order_by("idp.pedido","asc");
+        $query = $this->db->get();
+        return $query->result();
+    }
+    
+    public function load_all_processing()
+    {
+        $this->db->from("itens_do_pedido idp");
+        $this->db->join("pedidos p","p.id = idp.pedido");
+        $this->db->join("itens i","i.id = idp.item");
+        $this->db->where("p.status","processing");
+        $this->db->where("i.disponibilidade","1");
+        $this->db->order_by("idp.pedido","asc");
+        $query = $this->db->get();
+        return $query->result();
+    }
+    
+	public function load_all_ready()
+    {
+        $this->db->from("itens_do_pedido idp");
+        $this->db->join("pedidos p","p.id = idp.pedido");
+        $this->db->join("itens i","i.id = idp.item");
+        $this->db->where("p.status","ready");
+        $this->db->where("i.disponibilidade","1");
+        $this->db->order_by("idp.pedido","asc");
+        $query = $this->db->get();
+        return $query->result();
+    }
+    
+    public function load_all_waiting_payment()
+    {
+        $this->db->from("itens_do_pedido idp");
+        $this->db->join("pedidos p","p.id = idp.pedido");
+        $this->db->join("itens i","i.id = idp.item");
+        $this->db->where("p.status","waiting_payment");
+        $this->db->where("i.disponibilidade","1");
+        $this->db->order_by("idp.pedido","asc");
+        $query = $this->db->get();
+        return $query->result();
+    }
+    
+    public function load_all_finished()
+    {
+        $this->db->from("itens_do_pedido idp");
+        $this->db->join("pedidos p","p.id = idp.pedido");
+        $this->db->join("itens i","i.id = idp.item");
+        $this->db->where("p.status","finished");
+        $this->db->where("i.disponibilidade","1");
+        $this->db->order_by("idp.pedido","asc");
+        $query = $this->db->get();
+        return $query->result();
+    }
+    
 }
 
 ?>

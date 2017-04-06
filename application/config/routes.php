@@ -50,9 +50,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'pages/index';
-$route['sendo-processados'] = 'pages/loading';
+$route['processar/(:num)'] = 'pages/process/$1';
+$route['sendo-processados'] = 'pages/processing';
+$route['terminar/(:num)'] = 'pages/done/$1';
 $route['prontos'] = 'pages/ready';
+$route['entregar/(:num)'] = 'pages/deliver/$1';
 $route['aguardando-pagamento'] = 'pages/waiting_payment';
+$route['finalizar/(:num)'] = 'pages/finish/$1';
 $route['finalizados'] = 'pages/finished';
 
 $route["webservice-input"] = "pages/create_order";

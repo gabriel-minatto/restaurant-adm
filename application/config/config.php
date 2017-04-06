@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'https://clone-restaurante-gabdevilshunter.c9users.io/';
+$config['base_url'] = 'https://restaurant-integration-dev-gabdevilshunter.c9users.io/';
 
 /*
 |--------------------------------------------------------------------------

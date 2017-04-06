@@ -6,7 +6,7 @@
         <!-- Page Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Pedidos Finalizados
+                <h1 class="page-header">Pedidos Sendo Processados
                 </h1>
             </div>
         </div>
@@ -15,24 +15,21 @@
         <div class="row">
             <?php
             if($pedidos){
-                foreach($pedidos as $pedido){
-                    $total = 0;
-                ?>
+                foreach($pedidos as $pedido){ ?>
             <div class="col-md-4">
                 <h3>Pedido <?= $pedido[0]->pedido ?></h3>
                 <h4>Mesa <?= $pedido[0]->mesa ?></h4>
                 <div style="height: 150px; overflow: auto;">
                 <h4>Itens:</h4>
                 <ul>
-                    <?php foreach($pedido as $item){
-                        $total += $item->preco;
-                    ?>
-                        <li><?= $item->nome ?> + <?= number_format($item->preco,2,",","") ?>R$</li>
+                    <?php foreach($pedido as $item){ ?>
+                        <li><?= $item->nome ?></li>
                     <?php } ?>
                 </ul>
                 </div>
-                <h3>Total: <?= number_format($total,2,",","") ?>R$</h3>
-                <button class="btn btn-success">Pago <span class="glyphicon glyphicon-ok"></span></a>
+                <h5>Acompanhamentos e Observações:</h5>
+                <p><?= $item->observacoes ?></p>
+                <a class="btn btn-info" href="<?= base_url('/terminar/'.$item->pedido) ?>">Pronto <span class="glyphicon glyphicon-check"></span></a>
             </div>
             <?php }} ?>
         </div>

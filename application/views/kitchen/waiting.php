@@ -16,13 +16,23 @@
 
         <!-- Project One -->
         <div class="row">
+            <?php foreach($pedidos as $pedido){ ?>
             <div class="col-md-4">
-                <h3>Nome do Prato</h3>
-                <h4>Mesa X</h4>
+                <h3>Pedido <?= $pedido[0]->pedido ?></h3>
+                <h4>Mesa <?= $pedido[0]->mesa ?></h4>
+                <div style="height: 150px; overflow: auto;">
+                <h4>Itens:</h4>
+                <ul>
+                    <?php foreach($pedido as $item){ ?>
+                        <li><?= $item->nome ?></li>
+                    <?php } ?>
+                </ul>
+                </div>
                 <h5>Acompanhamentos e Observações:</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
-                <a class="btn btn-primary" href="#">Fazer<span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>  '
+                <p><?= $item->observacoes ?></p>
+                <a class="btn btn-success" href="<?= base_url('/processar/'.$item->pedido) ?>">Fazer <span class="glyphicon glyphicon-chevron-right"></span></a>
+            </div>
+            <?php } ?>
         </div>
         <!-- /.row -->
 
