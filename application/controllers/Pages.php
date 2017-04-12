@@ -145,14 +145,13 @@ class Pages extends CI_Controller
             echo "Erro no recebimento do pedido.";
             exit;
         }
-        $pedido = (json_decode($this->input->post("pedido",TRUE)));
-        if(!isset($pedido->senha) || $pedido->senha != "@teste123"){
+        if($_POST["senha"] != "@teste123"){
             echo "Senha incorreta";
             exit;
         }
         $this->load->model("Itens_do_pedido_model","itens_pedido");
         $this->load->model("Pedidos_model","pedido");
-        
+        $pedido = (json_decode($this->input->post("pedido",TRUE)));
         $this->pedido->mesa = $pedido->mesa;
         $this->pedido->observacoes = $pedido->obs;
         $this->pedido->status = "waiting";
@@ -181,11 +180,12 @@ class Pages extends CI_Controller
             echo "Erro no recebimento da senha.";
             exit;
         }
-        $senha = (json_decode($this->input->post("senha",TRUE)));
-        if(!isset($pedido->senha) || $pedido->senha != "@teste123"){
+        if($_POST["senha"] != "@teste123"){
             echo "Senha incorreta";
             exit;
         }
+        $this->load->model("Itens_model","item");
+        echo json_encode($this->item->load_all());
     }
 }   
 

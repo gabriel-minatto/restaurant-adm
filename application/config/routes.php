@@ -60,7 +60,12 @@ $route['finalizar/(:num)'] = 'pages/finish/$1';
 $route['finalizados'] = 'pages/finished';
 
 $route["webservice-input"] = "pages/create_order";
+$route["webservice-output"] = "pages/app_feed";
 
+
+$route["Webservice/wsdl"] = "Webservice/index/wsdl";
+
+$route["clientservice"] = "clientservice";
 
 
 $route['404_override'] = '';

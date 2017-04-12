@@ -30,7 +30,11 @@ class Itens_model extends CI_Model
         return $query->row(0, "Itens_model");
     }
     
-	
+	public function load_all(){
+	    $this->db->from("itens");
+	    $query = $this->db->get();
+	    return $query->result();
+	}
 }
 
 ?>
