@@ -2,7 +2,16 @@
 
 require_once(APPPATH.'third_party/nusoap/lib/nusoap.php');
 
-	if(!function_exists('get_nusoap_server'))
+    if(!function_exists('configure_wsdl_file')) //instancia um servidor
+	{
+		function configure_wsdl_file($server,$name) //configura o arquivo wsdl e seta um nome para schema
+		{
+		    $server->configureWSDL($name, 'urn:'.$name);
+            $server->wsdl->schemaTargetNamespace = 'urn:'.$name;
+		}
+	}
+
+	if(!function_exists('get_nusoap_server')) //instancia um servidor
 	{
 		function get_nusoap_server()
 		{
@@ -10,7 +19,7 @@ require_once(APPPATH.'third_party/nusoap/lib/nusoap.php');
 		}
 	}
 	
-	if(!function_exists('get_nusoap_client'))
+	if(!function_exists('get_nusoap_client'))//instancia um client/consumer
 	{
 	    function get_nusoap_client($wsdl)
 		{
@@ -21,7 +30,7 @@ require_once(APPPATH.'third_party/nusoap/lib/nusoap.php');
 		}
 	}
 	
-	if(!function_exists('set_nusoap_credentials'))
+	if(!function_exists('set_nusoap_credentials')) //faz "login" nmum webservice
 	{
 	    function set_nusoap_credentials($client,$login,$senha)
 		{
@@ -35,7 +44,7 @@ require_once(APPPATH.'third_party/nusoap/lib/nusoap.php');
 		}
 	}
 	
-	if(!function_exists('autenticate_nusoap'))
+	if(!function_exists('autenticate_nusoap')) //verifica se o usuario esta "logado"
 	{
 	    function autenticate_nusoap($login,$senha)
 		{
@@ -49,7 +58,7 @@ require_once(APPPATH.'third_party/nusoap/lib/nusoap.php');
 		}
 	}
 	
-	if(!function_exists('get_postdata'))
+	if(!function_exists('get_postdata')) //retorna o postdata
 	{
 	    function get_postdata()
 		{
@@ -58,7 +67,7 @@ require_once(APPPATH.'third_party/nusoap/lib/nusoap.php');
 	
 	}
 	
-	if(!function_exists('add_function_to_wsdl'))
+	if(!function_exists('add_function_to_wsdl')) //adicionada funcoes ao webservice
 	{
 	    function add_function_to_wsdl($server,$name,$parameters_in,$return,$description)
 		{
@@ -76,5 +85,4 @@ require_once(APPPATH.'third_party/nusoap/lib/nusoap.php');
             );
 		}
 	}
-	
 ?>

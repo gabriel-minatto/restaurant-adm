@@ -140,7 +140,7 @@ class Pages extends CI_Controller
         $this->load->view('kitchen/finished', $this->data);
     }
     
-    public function create_order(){
+    /*public function create_order(){
         if(!isset($_POST["pedido"])){
             echo "Erro no recebimento do pedido.";
             exit;
@@ -186,7 +186,7 @@ class Pages extends CI_Controller
         }
         $this->load->model("Itens_model","item");
         echo json_encode($this->item->load_all());
-    }
+    }*/
 }   
 
 
