@@ -58,11 +58,13 @@ $route['entregar/(:num)'] = 'pages/deliver/$1';
 $route['aguardando-pagamento'] = 'pages/waiting_payment';
 $route['finalizar/(:num)'] = 'pages/finish/$1';
 $route['finalizados'] = 'pages/finished';
+$route['administracao-itens'] = 'pages/item_management';
+
 
 
 $route["Webservice/wsdl"] = "Webservice/index/wsdl";
 
-$route["clientservice"] = "clientservice";
+$route["clientservice"] = "clientservice/create_order";
 
 
 $route['404_override'] = '';

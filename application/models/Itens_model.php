@@ -5,6 +5,7 @@ class Itens_model extends CI_Model
     var $id;
     var $nome;
     var $preco;
+    var $tipo;
     
     function __construct()
     {

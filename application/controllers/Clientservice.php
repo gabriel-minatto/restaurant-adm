@@ -40,7 +40,7 @@ class Clientservice extends CI_Controller
     public function create_order()
     {
         set_nusoap_credentials($this->client,"admin","admin");
-        $result = $this->client->call('new_order',["pedido"=>'{"itens":[{"qntd":1,"value":1},{"qntd":2,"value":2}],"mesa": 1,"obs":"Essa coca é fanta"}']);
+        $result = $this->client->call('new_order',["pedido"=>'{"itens":[{"qntd":1,"value":4},{"qntd":2,"value":5}],"mesa": 2,"obs":"Essa coca é fanta"}']);
         if($this->client->fault){
             echo "Falha<pre>".var_dump($result)."</pre>";
         }
@@ -54,6 +54,14 @@ class Clientservice extends CI_Controller
                 echo "</pre>";
             }
         }
+        /*echo '<h2>Request</h2>';
+        echo '<pre>' . htmlspecialchars($this->client->request, ENT_QUOTES) . '</pre>';
+        echo '<h2>Response</h2>';
+        echo '<pre>' . htmlspecialchars($this->client->response, ENT_QUOTES) . '</pre>';
+        
+        // Display the debug messages
+        echo '<h2>Debug</h2>';
+        echo '<pre>' . htmlspecialchars($this->client->debug_str, ENT_QUOTES) . '</pre>';*/
     }
     
 }

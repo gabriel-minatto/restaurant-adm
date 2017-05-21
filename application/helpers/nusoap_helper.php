@@ -48,12 +48,22 @@ require_once(APPPATH.'third_party/nusoap/lib/nusoap.php');
 	{
 	    function autenticate_nusoap($login,$senha)
 		{
-		    if (isset($_SERVER['PHP_AUTH_USER']) and isset($_SERVER['PHP_AUTH_PW'])){
+			//$headers = getallheaders();
+			$headers = apache_request_headers();
+			
+			if (isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW']))
                 if ($_SERVER['PHP_AUTH_USER'] == $login && $_SERVER['PHP_AUTH_PW'] == $senha)
                     return true;
-                else
-                    return false;
-            }
+            
+			
+			if (isset($_SERVER['php_auth_user']) && isset($_SERVER['php_auth_pw']))
+                if ($_SERVER['php_auth_user'] == $login && $_SERVER['php_auth_pw'] == $senha)
+                    return true;
+			
+		    if (isset($headers['php_auth_user']) && isset($headers['php_auth_pw']))
+                if ($headers['php_auth_user'] == $login && $headers['php_auth_pw'] == $senha)
+                    return true;
+
             return false;
 		}
 	}

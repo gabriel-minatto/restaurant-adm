@@ -27,11 +27,11 @@
                     <?php foreach($pedido as $item){
                         $total += $item->preco;
                     ?>
-                        <li><?= $item->nome ?> + <?= number_format($item->preco,2,",","") ?>R$</li>
+                        <li><?= $item->nome ?> + R$<?= number_format($item->preco,2,",","") ?></li>
                     <?php } ?>
                 </ul>
                 </div>
-                <h3>Total: <?= number_format($total,2,",","") ?>R$</h3>
+                <h3>Total: R$<?= number_format($total,2,",","") ?></h3>
                 <button class="btn btn-success">Pago <span class="glyphicon glyphicon-ok"></span></a>
             </div>
             <?php }} ?>
