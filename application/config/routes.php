@@ -59,7 +59,10 @@ $route['aguardando-pagamento'] = 'pages/waiting_payment';
 $route['finalizar/(:num)'] = 'pages/finish/$1';
 $route['finalizados'] = 'pages/finished';
 $route['administracao-itens'] = 'pages/item_management';
+$route['salvar-item'] = 'pages/save_item';
 
+$route['ativar-disponibilidade/(:num)'] = 'pages/enable_item_availability/$1';
+$route['desativar-disponibilidade/(:num)'] = 'pages/unable_item_availability/$1';
 
 
 $route["Webservice/wsdl"] = "Webservice/index/wsdl";

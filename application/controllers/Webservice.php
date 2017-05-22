@@ -36,7 +36,7 @@ class WebService extends CI_Controller
                 return 'Erro de autenticacao.';
             $CI =& get_instance();
 		    $CI->load->model("Itens_model","itens");
-		    return (string)json_encode($CI->itens->load_all());
+		    return (string)json_encode($CI->itens->load_all_available());
         }
         
         function new_order($pedido_in){

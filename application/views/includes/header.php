@@ -59,6 +59,9 @@
                     <li>
                         <a href="<?= base_url('finalizados') ?>">Finalizados</a>
                     </li>
+                    <li>
+                        <a href="<?= base_url('administracao-itens') ?>">Administrar Cardápio</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

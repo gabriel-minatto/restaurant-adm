@@ -141,12 +141,37 @@ class Pages extends CI_Controller
     }
     
     public function item_management(){
+        $this->load->model("Itens_model","item");
+        $this->data["itens"] = $this->item->load_all();
         $this->load->view('kitchen/item_management', $this->data);
+    }
+    
+    public function save_item(){
+        $this->load->model("Itens_model","item");
+        
+        $this->item->nome = $this->input->post("nome",true);
+        $this->item->preco = $this->input->post("preco",true);
+        $this->item->tipo = $this->input->post("tipo",true);
+        $available = $this->input->post("disponivel",true);
+        $this->item->disponibilidade = ($available == 1 ? 1 : 0 );
+        
+        $this->item->insert();
+        
+        redirect("administracao-itens", 'refresh');
+    }
+    
+    public function enable_item_availability($id){
+        $this->load->model("Itens_model","item");
+        $this->item->id = $id;
+        $this->item->enable_availability();
+    }
+    
+    public function unable_item_availability($id){
+        $this->load->model("Itens_model","item");
+        $this->item->id = $id;
+        $this->item->unable_availability();
     }
     
     
 }   
-
-
-
 

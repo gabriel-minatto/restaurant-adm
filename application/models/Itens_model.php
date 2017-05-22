@@ -5,6 +5,7 @@ class Itens_model extends CI_Model
     var $id;
     var $nome;
     var $preco;
+    var $disponibilidade;
     var $tipo;
     
     function __construct()
@@ -36,6 +37,23 @@ class Itens_model extends CI_Model
 	    $query = $this->db->get();
 	    return $query->result();
 	}
+	
+	public function load_all_available(){
+	    $this->db->from("itens");
+	    $this->db->where("disponibilidade",1);
+	    $query = $this->db->get();
+	    return $query->result();
+	}
+	
+	public function enable_availability(){
+	    $this->db->set('disponibilidade', 1);
+        $this->db->where('id', $this->id);
+        $this->db->update('itens');
+	}
+	
+	public function unable_availability(){
+	    $this->db->set('disponibilidade', 0);
+        $this->db->where('id', $this->id);
+        $this->db->update('itens');
+	}
 }
-
-?>

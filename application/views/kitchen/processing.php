@@ -36,3 +36,8 @@
         <!-- /.row -->
         <hr>
 <?php $this->load->view("includes/footer"); ?>
+<script>
+    setInterval(function(){
+        location.reload();
+    }, 5000);
+</script>
